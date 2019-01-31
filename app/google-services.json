@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "638663311999",
+    "firebase_url": "https://quizwin-e87c6.firebaseio.com",
+    "project_id": "quizwin-e87c6",
+    "storage_bucket": "quizwin-e87c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638663311999:android:d2f8c801d76de7bc",
+        "android_client_info": {
+          "package_name": "ca.benoitmignault.myfristapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638663311999-i9c95pmj2l90eh8alk17vom58p0rl4t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBwyaBfVmZ7_0Myg1cQIT486S356lRCxE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

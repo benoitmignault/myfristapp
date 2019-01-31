@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyFristApp</string>
+    <string name="msg1">Bienvenue dans mon application android sur une page vide !</string>
+    <string name="login1">Mail</string>
+    <string name="btn1">Login...</string>
+    <string name="hint_password">Password</string>
+</resources>
