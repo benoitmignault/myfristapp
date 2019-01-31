@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loginProgress.setVisibility(View.VISIBLE);
                 loginButton.setVisibility(View.INVISIBLE);
-                Toast.makeText(this,"allo", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this,"allo", Toast.LENGTH_LONG).show();
             }
         });
 
