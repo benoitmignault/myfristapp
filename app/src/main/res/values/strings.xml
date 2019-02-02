@@ -7,4 +7,6 @@
     <string name="btnFacebookStr">Connect Facebook</string>
     <string name="title">Login Screen</string>
     <string name="btnSignUpText">Sign Up</string>
+    <string name="facebook_app_id">2124110564565940</string>
+    <string name="facebook_login_protocol_scheme">fb2124110564565940</string>
 </resources>
