@@ -82,6 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                 parameters.putString("fields","id,email,birthday,friends");
                 request.setParameters(parameters);
                 request.executeAsync();
+                Toast.makeText(LoginActivity.this,"Nous avons réussi !", Toast.LENGTH_LONG).show();
+
+                finish(); // permet de fermer l'activité en cours pour caller la prochaine
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
 
             @Override
@@ -106,8 +110,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loginProgress.setVisibility(View.VISIBLE);
                 loginButton.setVisibility(View.INVISIBLE);
-                //Toast.makeText(this,"allo", Toast.LENGTH_LONG).show();
-
             }
         });
         // À ne pas laisser ouvert lorsqu'on veut se connecter ! sinon ça ne marche pas !!!!!!!!!!
