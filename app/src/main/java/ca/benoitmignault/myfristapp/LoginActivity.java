@@ -122,6 +122,8 @@ public class LoginActivity extends AppCompatActivity {
         });
         // À ne pas laisser ouvert lorsqu'on veut se connecter ! sinon ça ne marche pas !!!!!!!!!!
         //printKeyHash();
+        // 1pcXen5cqgnabx/iS9wCR7+OdQI=  // hashkey de mon laptop
+
     }
 
     /*
