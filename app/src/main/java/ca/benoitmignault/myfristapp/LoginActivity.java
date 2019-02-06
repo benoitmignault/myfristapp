@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -82,15 +83,22 @@ public class LoginActivity extends AppCompatActivity {
                 parameters.putString("fields","id,email,birthday,friends");
                 request.setParameters(parameters);
                 request.executeAsync();
-                Toast.makeText(LoginActivity.this,"Nous avons réussi !", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Connexion en cours...", Toast.LENGTH_SHORT).show();
 
-                finish(); // permet de fermer l'activité en cours pour caller la prochaine
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                //finishAffinity();
+                // permet de fermer l'activité en cours pour caller la prochaine
+
+                //Intent myintent = new Intent(LoginActivity.this, MainActivity.class);
+                // le principe des putExtra en série fonctionne par contre
+                //myintent.putExtra("testEmail", textEmailFB.getText().toString()); // Ceci n'est pas sauvegarder
+                //myintent.putExtra("test1", "Un courriel de tests non suivis");
+                //myintent.putExtra("test2", "Une date de naissance non suivis");
+                //myintent.putExtra("test3", "Un nombre d'amis qui n'a pas suivis");
+                //startActivity(myintent);
             }
 
             @Override
             public void onCancel() {
-
             }
 
             @Override
@@ -102,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         //if aleady login
         if (AccessToken.getCurrentAccessToken() != null){
             textEmailFB.setText(AccessToken.getCurrentAccessToken().getUserId());
-        }
+        } 
 
         // Au moment de cliquer sur le bouton, une animation de avancement du login se déclanche
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +123,19 @@ public class LoginActivity extends AppCompatActivity {
         // À ne pas laisser ouvert lorsqu'on veut se connecter ! sinon ça ne marche pas !!!!!!!!!!
         //printKeyHash();
     }
+
+    /*
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    */
 
     private void getData(JSONObject object) {
         try{
