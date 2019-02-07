@@ -65,7 +65,10 @@ public class LoginActivity extends AppCompatActivity {
         avatarFB = findViewById(R.id.avatarFB);
         callbackManager = CallbackManager.Factory.create();
         btnLoginFacebook = findViewById(R.id.loginButton2);
-        btnLoginFacebook.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
+
+        //btnLoginFacebook.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
+
+        btnLoginFacebook.setReadPermissions(Arrays.asList("public_profile","email"));
 
         btnLoginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -80,7 +83,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 //Request Graph API
                 Bundle parameters = new Bundle();
-                parameters.putString("fields","id,email,birthday,friends");
+                //parameters.putString("fields","id,email,birthday,friends");
+                parameters.putString("fields","id,email");
+
                 request.setParameters(parameters);
                 request.executeAsync();
                 Toast.makeText(LoginActivity.this, "Connexion en cours...", Toast.LENGTH_SHORT).show();
@@ -146,8 +151,8 @@ public class LoginActivity extends AppCompatActivity {
             Picasso.with(this).load(profile_picture.toString()).into(avatarFB);
 
             textEmailFB.setText(object.getString("email"));
-            textBirthdayFB.setText(object.getString("birthday"));
-            textnbFriends.setText("Friends : "+object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));
+            //textBirthdayFB.setText(object.getString("birthday"));
+            //textnbFriends.setText("Friends : "+object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
