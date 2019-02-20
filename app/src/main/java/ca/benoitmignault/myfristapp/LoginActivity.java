@@ -65,9 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         avatarFB = findViewById(R.id.avatarFB);
         callbackManager = CallbackManager.Factory.create();
         btnLoginFacebook = findViewById(R.id.loginButton2);
-
-        //btnLoginFacebook.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
-
         btnLoginFacebook.setReadPermissions(Arrays.asList("public_profile","email"));
 
         btnLoginFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -83,8 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 //Request Graph API
                 Bundle parameters = new Bundle();
-                //parameters.putString("fields","id,email,birthday,friends");
-                parameters.putString("fields","id,email");
+                parameters.putString("fields","id,email,first_name,last_name");
 
                 request.setParameters(parameters);
                 request.executeAsync();
@@ -128,7 +124,6 @@ public class LoginActivity extends AppCompatActivity {
         // À ne pas laisser ouvert lorsqu'on veut se connecter ! sinon ça ne marche pas !!!!!!!!!!
         //printKeyHash();
         // 1pcXen5cqgnabx/iS9wCR7+OdQI=  // hashkey de mon laptop
-
     }
 
     /*
@@ -151,8 +146,8 @@ public class LoginActivity extends AppCompatActivity {
             Picasso.with(this).load(profile_picture.toString()).into(avatarFB);
 
             textEmailFB.setText(object.getString("email"));
-            //textBirthdayFB.setText(object.getString("birthday"));
-            //textnbFriends.setText("Friends : "+object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));
+            textBirthdayFB.setText(object.getString("first_name"));
+            textnbFriends.setText(object.getString("last_name"));
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
